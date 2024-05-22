@@ -5,7 +5,7 @@ export interface SelectProps {
     type?: HTMLInputTypeAttribute,
     text: string,
     name: string,
-    options?: HTMLOptionElement,
+    options?: any,
     handleOnChange?: ChangeEventHandler,
     value?: string
 }
@@ -20,6 +20,11 @@ export default function Select(props: SelectProps) {
                 name={props.name}
                 id={props.name}>
                     <option>Selecione uma opcao</option>
+                    {props.options.map((opt)=> (
+                        <option value={opt.id} key={opt.id}>
+                            {opt.name}
+                        </option>
+                    ))}
                 </select>
         </div>
     )
