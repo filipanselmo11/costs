@@ -18,7 +18,9 @@ export default function Select(props: SelectProps) {
             </label>
             <select
                 name={props.name}
-                id={props.name}>
+                id={props.name}
+                onChange={props.handleOnChange}
+                value={props.value || ''}>
                     <option>Selecione uma opcao</option>
                     {props.options.map((opt)=> (
                         <option value={opt.id} key={opt.id}>
