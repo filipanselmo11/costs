@@ -8,6 +8,7 @@ export interface ContainerProps {
 
 export default function Container(props: ContainerProps) {
     return <div className={`${styles.container} ${styles[props.customClass]}`}>
-        {props.children}
+        {props.children} 
+        {/* <ng-content></ng-content> */}
     </div>
 }
