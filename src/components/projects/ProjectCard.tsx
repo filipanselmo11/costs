@@ -28,16 +28,16 @@ export default function ProjectCard(props: ProjectCardProps) {
             </p>
             <p className="category_text">
                 {props.category === 'Infra' && (
-                    <span className="infra">{props.category}</span>
+                    <span>{props.category}</span>
                 )}
                 {props.category === 'Desenvolvimento' && (
-                    <span className="desenvolvimento">{props.category}</span>
+                    <span>{props.category}</span>
                 )}
                 {props.category === 'Design' && (
-                    <span className="design">{props.category}</span>
+                    <span>{props.category}</span>
                 )}
                 {props.category === 'Planejamento' && (
-                    <span className="planejamento">{props.category}</span>
+                    <span>{props.category}</span>
                 )}
             </p>
             <div className="project_card_actions">
