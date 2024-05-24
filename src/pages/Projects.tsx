@@ -18,6 +18,7 @@ import Loading from "../components/layout/Loading";
 export default function Projects() {
     const [projects, setProjects] = useState([]);
     const [loading, setLoading] = useState(false);
+    const [projectMessage, setProjectMessage] = useState("");
     const location = useLocation();
     let message = '';
     if (location.state) {
@@ -35,6 +36,15 @@ export default function Projects() {
         }, 1000)
     }, [])
 
+    const removeProject = (id) => {
+        api.delete(`/projects/${id}`)
+           .then(() => {
+            setProjects(projects.filter((project) => project.id !== id));
+            setProjectMessage("Projeto Removido com sucesso");
+           })
+           .catch((err) => console.log(err))
+    }
+
     return (
         <div className="project_container">
             <div className="title_container">
@@ -42,14 +52,16 @@ export default function Projects() {
                 <LinkButton to="/new-project" text="Criar Projeto" />
             </div>
             {message && <Message type="success" msg={message} />}
+            {projectMessage && <Message type="success" msg={projectMessage} />}
             <Container customClass="start">
                 {projects.length > 0 && projects.map((project) => (
                     <ProjectCard
                         id={project.id}
                         name={project.name}
                         budget={project.budget}
-                        category={project.category}
+                        category={project.category.name}
                         key={project.id}
+                        handleRemove={removeProject}
                     />
                 ))}
                 {!loading && <Loading />}

@@ -5,11 +5,17 @@ export interface ProjectCardProps {
     id: any,
     name: any,
     budget: any,
-    category: 'infra' | 'desenvolvimento' | 'design' | 'planejamento',
+    category: 'Infra' | 'Desenvolvimento' | 'Design' | 'Planejamento',
     handleRemove?: any
 }
 
 export default function ProjectCard(props: ProjectCardProps) {
+
+    const remove = (e) => {
+        e.preventDefault();
+        props.handleRemove(props.id);
+    }
+
     return (
         <div className="project_card">
             <h4>
@@ -21,16 +27,16 @@ export default function ProjectCard(props: ProjectCardProps) {
                 </span>
             </p>
             <p className="category_text">
-                {props.category === 'infra' && (
+                {props.category === 'Infra' && (
                     <span className="infra">{props.category}</span>
                 )}
-                {props.category === 'desenvolvimento' && (
+                {props.category === 'Desenvolvimento' && (
                     <span className="desenvolvimento">{props.category}</span>
                 )}
-                {props.category === 'design' && (
+                {props.category === 'Design' && (
                     <span className="design">{props.category}</span>
                 )}
-                {props.category === 'planejamento' && (
+                {props.category === 'Planejamento' && (
                     <span className="planejamento">{props.category}</span>
                 )}
             </p>
@@ -38,7 +44,7 @@ export default function ProjectCard(props: ProjectCardProps) {
                 <Link to="/">
                     <BsPencil/> Editar
                 </Link>
-                <button>
+                <button onClick={remove}>
                     <BsFillTrashFill/> Excluir
                 </button>
             </div>
