@@ -2,11 +2,22 @@
   "projects": [
     {
       "id": "6511",
-      "name": "Site da Escola 1",
-      "budget": "2000",
+      "name": "Site da Escola 2",
+      "budget": "2003",
       "category": {
-        "id": "1",
-        "name": "Infra"
+        "id": "2",
+        "name": "Desenvolvimento"
+      },
+      "cost": 0,
+      "services": []
+    },
+    {
+      "id": "2428",
+      "name": "Site FACULDADE",
+      "budget": "3400",
+      "category": {
+        "id": "2",
+        "name": "Desenvolvimento"
       },
       "cost": 0,
       "services": []
